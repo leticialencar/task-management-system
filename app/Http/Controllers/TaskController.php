@@ -34,5 +34,11 @@ class TaskController extends Controller
             return back()->withErrors(['error' => 'Ocorreu um erro ao criar a tarefa. Por favor, tente novamente.']);
         }
     }
-    
+
+    public function index()
+    {
+        $tasks = Task::where('created_by', auth()->id())->latest()->get();
+        return view('tasks.index', compact('tasks'));
+    }
+
 }

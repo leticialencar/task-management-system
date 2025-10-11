@@ -7,8 +7,6 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-900 shadow-xl sm:rounded-2xl p-8 transition-all duration-300">
-
                 @if($tasks->isEmpty())
                     <p class="text-gray-600 dark:text-gray-400 text-center text-lg">Você ainda não possui nenhuma tarefa. Adicione uma nova para vê-la aqui!</p>
                 @else

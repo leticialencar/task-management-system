@@ -35,9 +35,16 @@ class TaskController extends Controller
         }
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::where('created_by', auth()->id())->latest()->get();
+        $query = Task::where('created_by', auth()->id());
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $tasks = $query->latest()->get();
+
         return view('tasks.index', compact('tasks'));
     }
 

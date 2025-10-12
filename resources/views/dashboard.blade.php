@@ -1,7 +1,6 @@
 <x-app-layout>
     <div class="container mx-auto p-6">
-        <h1 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Dashboard</h1>
-
+        <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Progresso</h2>
         <div class="grid grid-cols-3 gap-6">
             @foreach ($percentages as $status => $value)
                 <x-charts.status-chart :status="$status" :value="$value" />

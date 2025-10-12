@@ -43,6 +43,14 @@ class TaskController extends Controller
             $query->where('status', $request->status);
         }
 
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+
         $tasks = $query->latest()->get();
 
         return view('tasks.index', compact('tasks'));

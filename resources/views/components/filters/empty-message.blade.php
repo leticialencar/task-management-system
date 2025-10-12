@@ -1,4 +1,4 @@
-@props(['status'])
+@props(['status', 'search' => ''])
 
 @php
     $messages = [
@@ -9,6 +9,10 @@
     ];
 
     $message = $messages[$status] ?? $messages[''];
+
+    if(!empty($search)) {
+        $message = "Nenhuma tarefa encontrada para \"{$search}\".";
+    }
 @endphp
 
 <p class="text-gray-600 dark:text-gray-400 text-center text-lg">

@@ -48,4 +48,15 @@ class TaskController extends Controller
         return view('tasks.index', compact('tasks'));
     }
 
+    public function destroy(Task $task)
+    {
+    if ($task->created_by !== auth()->id()) {
+        return redirect()->route('tasks.index')->withErrors(['error' => 'Você não tem permissão para deletar esta tarefa.']);
+    }
+
+    $task->delete();
+
+    return redirect()->route('tasks.index')->with('success', 'Tarefa deletada com sucesso!');
+    }
+
 }

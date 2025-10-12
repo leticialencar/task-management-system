@@ -11,10 +11,9 @@
             <x-filters.task-filters :currentStatus="request('status', '')" />
 
             @if($tasks->isEmpty())
-                <p class="text-gray-600 dark:text-gray-400 text-center text-lg">
-                    Você ainda não possui nenhuma tarefa. Adicione uma nova para vê-la aqui!
-                </p>
+                <x-filters.empty-message :status="request('status', '')" />
             @else
+            
                 <div class="relative overflow-x-auto rounded-xl shadow-md mt-4">
                     <table class="w-full text-sm text-center text-gray-600 dark:text-gray-300">
                         <thead class="text-xs uppercase bg-gray-100 dark:bg-gray-800 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
@@ -44,14 +43,20 @@
                                         @endif
                                     </td>
                                     <td class="py-3 px-4 text-center space-x-3">
-                                        <a href="#"
+                                        <a href="{{ route('tasks.edit', $task->id) }}"
                                            class="inline-block px-4 py-1.5 text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition">
                                             Editar
                                         </a>
-                                        <a href="#"
-                                           class="inline-block px-4 py-1.5 text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 transition">
-                                            Deletar
-                                        </a>
+
+                                        <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="inline-block">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="px-4 py-1.5 text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 transition"
+                                                onclick="return confirm('Tem certeza que deseja deletar esta tarefa?');">
+                                                Deletar
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

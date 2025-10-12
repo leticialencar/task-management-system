@@ -10,10 +10,14 @@
 
             <x-filters.task-filters :currentStatus="request('status', '')" />
 
+            @if($errors->any())
+                <x-alerts.error :errors="$errors" />
+            @endif
+
             @if($tasks->isEmpty())
                 <x-filters.empty-message :status="request('status', '')" />
             @else
-            
+
                 <div class="relative overflow-x-auto rounded-xl shadow-md mt-4">
                     <table class="w-full text-sm text-center text-gray-600 dark:text-gray-300">
                         <thead class="text-xs uppercase bg-gray-100 dark:bg-gray-800 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">

@@ -59,4 +59,35 @@ class TaskController extends Controller
     return redirect()->route('tasks.index')->with('success', 'Tarefa deletada com sucesso!');
     }
 
+    public function edit(Task $task)
+    {
+        if ($task->created_by !== auth()->id()) {
+            return redirect()->route('tasks.index')
+                             ->withErrors(['error' => 'Você não possui permissão para editar esta tarefa.']);
+        }
+
+        return view('tasks.edit', compact('task'));
+    }
+
+    public function update(Request $request, Task $task)
+    {
+        if ($task->created_by !== auth()->id()) {
+            return redirect()->route('tasks.index')
+                             ->withErrors(['error' => 'Você não possui permissão para editar esta tarefa.']);
+        }
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'status' => 'required|in:pending,in_progress,completed',
+        ]);
+
+        $task->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('tasks.index')->with('success', 'Tarefa atualizada com sucesso!');
+    }
 }

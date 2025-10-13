@@ -22,7 +22,7 @@
     <body class="bg-[#100d28] flex items-center justify-center min-h-screen px-6">
     <main class="bg-white/10 backdrop-blur-md text-center rounded-xl shadow-lg p-10 w-full max-w-md transition-all duration-300 border border-white/10">
         
-        <img src="https://i.ibb.co/LhkycbG9/image-removebg-preview.png" 
+        <img src="https://iili.io/KOOMLYX.png" 
              alt="Logo Nuvra" 
              class="w-full max-w-[150px] mx-auto mb-6 object-contain opacity-95 transition-opacity duration-200" />
 

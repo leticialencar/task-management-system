@@ -32,7 +32,9 @@
             @foreach ($latestTasks as $task)
                 <li class="p-4 flex justify-between text-gray-900 dark:text-gray-100">
                     <span>{{ $task->title }}</span>
-                    <span class="text-gray-500 dark:text-gray-400 text-sm">{{ $task->created_at->format('m/d/Y H:i') }}</span>
+                    <span class="text-gray-500 dark:text-gray-400 text-sm">
+                        {{ $task->created_at->format('d/m/Y H:i') }}
+                    </span>
                 </li>
             @endforeach
         </ul>

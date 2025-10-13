@@ -34,7 +34,13 @@
                         </select>
                     </div>
 
-                    <div class="flex justify-end">
+                    <div class="flex justify-end space-x-3">
+
+                    <a href="{{ route('dashboard') }}" 
+                           class="px-4 py-2 rounded-md bg-gray-400 hover:bg-gray-500 text-white transition">
+                            Cancelar
+                        </a>
+
                         <button type="submit"
                                 class="px-6 py-2 bg-[#8142fc] hover:bg-[#582dae] text-white font-medium rounded-lg shadow-md transition">
                             Criar Tarefa

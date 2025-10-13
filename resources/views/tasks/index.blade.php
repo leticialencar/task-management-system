@@ -64,7 +64,7 @@
                                     </td>
                                     <td class="py-3 px-4 text-center space-x-3">
                                         <a href="{{ route('tasks.edit', $task->id) }}"
-                                           class="inline-flex items-center gap-1 px-4 py-1.5 text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition">
+                                           class="inline-flex items-center gap-1 px-4 py-1.5 text-sm font-medium rounded-md text-white bg-[#8142fc] hover:bg-[#582dae] transition">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536M9 13l6-6 3 3-6 6H9v-3z" />
                                             </svg>

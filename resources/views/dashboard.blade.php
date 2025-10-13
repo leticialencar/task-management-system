@@ -5,6 +5,11 @@
             @foreach ($percentages as $status => $value)
                 <x-charts.status-chart :status="$status" :value="$value" />
             @endforeach
+
+            @if(session('success'))
+                <x-alerts.success :messages="[session('success')]" />
+            @endif
+
         </div>
 
         <div class="mt-8 flex justify-between items-center">

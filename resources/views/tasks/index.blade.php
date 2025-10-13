@@ -22,12 +22,15 @@
                 <x-alerts.error :errors="$errors" />
             @endif
 
+            @if(session('success'))
+                <x-alerts.success :messages="[session('success')]" />
+            @endif
+
             @if($tasks->isEmpty())
                 <x-filters.empty-message 
                     :status="request('status', '')" 
                     :search="request('search', '')" />
             @else
-            
                 <div class="relative overflow-x-auto rounded-xl shadow-md">
                     <table class="w-full text-sm text-center text-gray-600 dark:text-gray-300">
                         <thead class="text-xs uppercase bg-gray-100 dark:bg-gray-800 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700">
@@ -64,7 +67,7 @@
                                     </td>
                                     <td class="py-3 px-4 text-center space-x-3">
                                         <a href="{{ route('tasks.edit', $task->id) }}"
-                                           class="inline-flex items-center gap-1 px-4 py-1.5 text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition">
+                                           class="inline-flex items-center gap-1 px-4 py-1.5 text-sm font-medium rounded-md text-white bg-[#8142fc] hover:bg-[#582dae] transition">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536M9 13l6-6 3 3-6 6H9v-3z" />
                                             </svg>
@@ -75,7 +78,11 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                class="inline-flex items-center gap-1 px-4 py-1.5 text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 transition"
+                                                class="inline-flex items-center gap-1 px-4 py-1.5 text-sm font-medium rounded-md
+                                                    text-gray-800 dark:text-gray-200
+                                                    bg-gray-300 dark:bg-gray-700
+                                                    hover:bg-gray-400 dark:hover:bg-gray-600
+                                                    transition"
                                                 onclick="return confirm('Tem certeza que deseja deletar esta tarefa?');">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />

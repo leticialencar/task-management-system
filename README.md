@@ -9,8 +9,8 @@
 
 ## Tecnologias utilizadas
 
-- **PHP 8.2**
-- **Laravel 11**
+- **PHP 8.4**
+- **Laravel 12**
 - **MySQL 8**
 - **Nginx**
 - **Composer**

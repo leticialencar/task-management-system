@@ -38,7 +38,7 @@
                 <li class="p-4 flex justify-between text-gray-900 dark:text-gray-100">
                     <span>{{ $task->title }}</span>
                     <span class="text-gray-500 dark:text-gray-400 text-sm">
-                        {{ $task->created_at->format('d/m/Y H:i') }}
+                        {{ $task->created_at->format('d/m/Y') }}
                     </span>
                 </li>
             @endforeach

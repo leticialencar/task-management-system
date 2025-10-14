@@ -18,6 +18,8 @@
 - **Tailwind CSS (frontend)**
 - **Blade Templates**
 
+<br>
+
 ## Requisitos
 
 Para rodar o projeto com Docker:

@@ -20,7 +20,7 @@
 
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Descrição</label>
-                        <textarea name="description" id="description" rows="4"
+                        <textarea name="description" id="description" required rows="4"
                                   class="block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8142fc] transition"></textarea>
                     </div>
 

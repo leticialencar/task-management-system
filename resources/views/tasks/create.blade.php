@@ -8,35 +8,39 @@
     <div class="py-12">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-900 overflow-hidden shadow-lg sm:rounded-xl p-8">
-                
+
+                @if($errors->any())
+                    <x-alerts.error :errors="$errors" />
+                @endif
+
                 <form method="POST" action="{{ route('tasks.store') }}" class="space-y-6">
                     @csrf
 
                     <div>
                         <label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Título</label>
-                        <input type="text" name="title" id="title" required maxlength="255"
+                        <input type="text" name="title" id="title" maxlength="255"
+                               value="{{ old('title') }}"
                                class="block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8142fc] transition">
                     </div>
 
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Descrição</label>
-                        <textarea name="description" id="description" required rows="4"
-                                  class="block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8142fc] transition"></textarea>
+                        <textarea name="description" id="description"  rows="4"
+                                  class="block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8142fc] transition">{{ old('description') }}</textarea>
                     </div>
 
                     <div>
                         <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Status</label>
                         <select name="status" id="status"
                                 class="block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#8142fc] transition">
-                            <option value="pending">Pendente</option>
-                            <option value="in_progress">Em andamento</option>
-                            <option value="completed">Concluída</option>
+                            <option value="pending" {{ old('status') == 'pending' ? 'selected' : '' }}>Pendente</option>
+                            <option value="in_progress" {{ old('status') == 'in_progress' ? 'selected' : '' }}>Em andamento</option>
+                            <option value="completed" {{ old('status') == 'completed' ? 'selected' : '' }}>Concluída</option>
                         </select>
                     </div>
 
                     <div class="flex justify-end space-x-3">
-
-                    <a href="{{ route('dashboard') }}" 
+                        <a href="{{ route('dashboard') }}" 
                            class="px-4 py-2 rounded-md bg-gray-400 hover:bg-gray-500 text-white transition">
                             Cancelar
                         </a>

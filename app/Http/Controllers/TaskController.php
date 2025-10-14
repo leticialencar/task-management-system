@@ -19,6 +19,12 @@ class TaskController extends Controller
             'title' => 'required|string|max:255|min:3',
             'description' => 'required|string|min:5',
             'status' => 'required|in:pending,in_progress,completed',
+        ], [
+            'title.required' => 'O título é obrigatório.',
+            'title.min' => 'O título deve ter no mínimo 3 caracteres.',
+            'description.required' => 'A descrição é obrigatória.',
+            'description.min' => 'A descrição deve ter no mínimo 5 caracteres.',
+            'status.required' => 'O status é obrigatório.',
         ]);
 
         Task::create([
@@ -88,6 +94,12 @@ class TaskController extends Controller
             'title' => 'required|string|max:255|min:3',
             'description' => 'required|string|min:5',
             'status' => 'required|in:pending,in_progress,completed',
+        ], [
+            'title.required' => 'O título é obrigatório.',
+            'title.min' => 'O título deve ter no mínimo 3 caracteres.',
+            'description.required' => 'A descrição é obrigatória.',
+            'description.min' => 'A descrição deve ter no mínimo 5 caracteres.',
+            'status.required' => 'O status é obrigatório.',
         ]);
 
         $task->update([

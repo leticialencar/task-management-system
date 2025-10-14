@@ -9,14 +9,8 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-900 shadow-md rounded-xl p-6">
                 
-                @if ($errors->any())
-                    <div class="mb-4">
-                        <ul class="list-disc list-inside text-red-600 dark:text-red-400">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                @if($errors->any())
+                    <x-alerts.error :errors="$errors" />
                 @endif
 
                 <form action="{{ route('tasks.update', $task->id) }}" method="POST">

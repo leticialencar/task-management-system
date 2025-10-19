@@ -38,7 +38,7 @@ Para rodar o projeto com Docker:
 > Ideal para testes técnicos ou ambientes padronizados.  
 > Nenhuma dependência precisa ser instalada além do Docker.
 
-#### 🧾 Passos:
+#### Passos:
 
 1. **Clone o repositório**
    ```bash
@@ -78,6 +78,23 @@ Para rodar o projeto com Docker:
 8. **Acesse no navegador**
     ```bash
     http://localhost:8080
+
+<br>
+
+🎨 Rodando o Frontend (Vite / Tailwind)
+
+> O ambiente Node não está dentro do Docker, então esses comandos devem ser executados fora do container, no seu terminal local.
+
+```bash
+npm install
+npm run dev
+```
+
+Se preferir gerar os arquivos de produção:
+
+```bash
+npm run build
+```
 
 <br>
 
